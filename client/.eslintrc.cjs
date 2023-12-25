@@ -47,5 +47,9 @@ module.exports = {
     'no-console': 'off',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'react/function-component-definition': 'off',
+    'arrow-body-style': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
   },
 };
