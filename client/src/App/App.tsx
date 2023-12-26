@@ -7,12 +7,19 @@ import AuthorizationPage from '../features/auth/AuthorizationPage';
 import { checkUser } from '../features/auth/authSlice';
 import NavBar from '../features/nav/NavBar';
 import MainPage from '../features/main/MainPage';
+import ProductsList from '../features/products/components/ProductsList';
+import FavoritesPage from '../features/favorites/components/FavoritesPage';
+import { loadProducts } from '../features/products/productsSlice';
+import ProductItemPage from '../features/products/components/ProductItemPage';
+import { loadFavoriteProducts } from '../features/favorites/favoritesSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(checkUser());
+    dispatch(loadProducts());
+    dispatch(loadFavoriteProducts());
   }, []);
 
   return (
@@ -22,6 +29,9 @@ function App(): JSX.Element {
           <Route path="/" element={<MainPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/authorization" element={<AuthorizationPage />} />
+          <Route path="/products" element={<ProductsList />} />
+          <Route path="/products/:productId" element={<ProductItemPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
         </Route>
       </Routes>
     </div>

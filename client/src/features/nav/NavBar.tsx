@@ -20,6 +20,12 @@ const NavBar = (): JSX.Element => {
         <li>
           <NavLink to="/products">Товары</NavLink>
         </li>
+        <li>
+          <NavLink to="/favorites">Избранное</NavLink>
+        </li>
+        <li>
+          <NavLink to="/cart">Корзина</NavLink>
+        </li>
         {!user ? (
           <>
             <li>
@@ -38,6 +44,7 @@ const NavBar = (): JSX.Element => {
         )}
       </ul>
       <Outlet />
+      <footer>telega, insta, phone </footer>
     </div>
   );
 };
