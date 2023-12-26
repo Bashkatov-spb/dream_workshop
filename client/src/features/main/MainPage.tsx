@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCube, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-// import 'swiper/css/autoplay';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
@@ -15,7 +14,7 @@ const MainPage = (): JSX.Element => {
 
       <Swiper
         loop={true}
-        style={{ width: '300px' }}
+        style={{ width: '400px' }}
         effect="cube"
         cubeEffect={{
           shadow: true,
@@ -28,20 +27,36 @@ const MainPage = (): JSX.Element => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <img src="https://source.unsplash.com/random/300x300" />
+          <img
+            style={{ width: '400px' }}
+            src="https://parade.com/.image/t_share/MTkwNTgxMTA1Mzk5MTc4MzY1/funny-pictures.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://source.unsplash.com/random/300x300" />
+          <img
+            style={{ width: '400px' }}
+            src="https://parade.com/.image/t_share/MTkwNTgxMTA1Mzk5MTc4MzY1/funny-pictures.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://source.unsplash.com/random/300x300" />
+          <img
+            style={{ width: '400px' }}
+            src="https://parade.com/.image/t_share/MTkwNTgxMTA1Mzk5MTc4MzY1/funny-pictures.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://source.unsplash.com/random/300x300" />
+          <img
+            style={{ width: '400px' }}
+            src="https://parade.com/.image/t_share/MTkwNTgxMTA1Mzk5MTc4MzY1/funny-pictures.jpg"
+          />
         </SwiperSlide>
       </Swiper>
 
       <div>Info about me</div>
+      <img
+        src="https://kartinki.pibig.info/uploads/posts/2023-04/1682463662_kartinki-pibig-info-p-boginya-vesta-kartinki-arti-krasivo-1.jpg"
+        alt=""
+      />
     </div>
   );
 };
