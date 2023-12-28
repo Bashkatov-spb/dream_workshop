@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, type RootState } from '../../../redux/store';
 import { deleteProduct, updateProduct } from '../productsSlice';
 import type { Category } from '../types/type';
+import { addCartProduct } from '../../cart/cartSlice';
+import { addFavoriteProduct } from '../../favorites/favoritesSlice';
 
 const ProductItemPage = (): JSX.Element => {
   const { productId } = useParams();
@@ -49,6 +51,14 @@ const ProductItemPage = (): JSX.Element => {
   const onHandleRemove = (): void => {
     if (product) dispatch(deleteProduct(product.id));
   };
+
+  const onHandleAddFavorite = (): void => {
+    if (productId) dispatch(addFavoriteProduct(+productId));
+  };
+
+  const onHandleAddToCart = (): void => {
+    if (productId) dispatch(addCartProduct(+productId));
+  };
   return (
     <div>
       <h4>{product?.title}</h4>
@@ -61,8 +71,12 @@ const ProductItemPage = (): JSX.Element => {
       <p>{product?.cost}</p>
       {user && (
         <>
-          <button type="button">Добавить в избранное</button>
-          <button type="button">Добавить в корзину</button>
+          <button onClick={onHandleAddFavorite} type="button">
+            Добавить в избранное
+          </button>
+          <button onClick={onHandleAddToCart} type="button">
+            Добавить в корзину
+          </button>
         </>
       )}
       {user?.isAdmin && (

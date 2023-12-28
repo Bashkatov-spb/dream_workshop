@@ -8,24 +8,20 @@ const NavBar = (): JSX.Element => {
   const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
 
-  const handleLogOut = async (): Promise<void> => {
+  const handleLogOut = (): void => {
     dispatch(logOut());
   };
   return (
     <div>
       <ul>
+        {user && <li>Привет, {user?.name}! </li>}
         <li>
           <NavLink to="/">Главная</NavLink>
         </li>
         <li>
           <NavLink to="/products">Товары</NavLink>
         </li>
-        <li>
-          <NavLink to="/favorites">Избранное</NavLink>
-        </li>
-        <li>
-          <NavLink to="/cart">Корзина</NavLink>
-        </li>
+
         {!user ? (
           <>
             <li>
@@ -36,11 +32,19 @@ const NavBar = (): JSX.Element => {
             </li>
           </>
         ) : (
-          <li>
-            <button type="button" onClick={handleLogOut}>
-              Выход
-            </button>
-          </li>
+          <>
+            <li>
+              <NavLink to="/favorites">Избранное</NavLink>
+            </li>
+            <li>
+              <NavLink to="/cart">Корзина</NavLink>
+            </li>
+            <li>
+              <button type="button" onClick={handleLogOut}>
+                Выход
+              </button>
+            </li>
+          </>
         )}
       </ul>
       <Outlet />
