@@ -12,6 +12,8 @@ import FavoritesPage from '../features/favorites/components/FavoritesPage';
 import { loadProducts } from '../features/products/productsSlice';
 import ProductItemPage from '../features/products/components/ProductItemPage';
 import { loadFavoriteProducts } from '../features/favorites/favoritesSlice';
+import CartPage from '../features/cart/components/CartPage';
+import { loadCartProducts } from '../features/cart/cartSlice';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -20,6 +22,7 @@ function App(): JSX.Element {
     dispatch(checkUser());
     dispatch(loadProducts());
     dispatch(loadFavoriteProducts());
+    dispatch(loadCartProducts());
   }, []);
 
   return (
@@ -32,6 +35,7 @@ function App(): JSX.Element {
           <Route path="/products" element={<ProductsList />} />
           <Route path="/products/:productId" element={<ProductItemPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
       </Routes>
     </div>

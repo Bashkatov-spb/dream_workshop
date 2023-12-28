@@ -4,12 +4,14 @@ import { useDispatch } from 'react-redux';
 import authSlice from '../features/auth/authSlice';
 import productsSlice from '../features/products/productsSlice';
 import favoritesSlice from '../features/favorites/favoritesSlice';
+import cartSlice from '../features/cart/cartSlice';
 
 const store = configureStore({
   reducer: {
     auth: authSlice,
     products: productsSlice,
     favorites: favoritesSlice,
+    cart: cartSlice,
   },
 });
 

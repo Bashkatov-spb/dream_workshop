@@ -5,6 +5,7 @@ import { type RootState, useAppDispatch } from '../../../redux/store';
 import type { Product } from '../types/type';
 import { deleteProduct } from '../productsSlice';
 import { addFavoriteProduct } from '../../favorites/favoritesSlice';
+import { addCartProduct } from '../../cart/cartSlice';
 
 const ProductItem = ({ product }: { product: Product }): JSX.Element => {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -16,6 +17,10 @@ const ProductItem = ({ product }: { product: Product }): JSX.Element => {
 
   const onHandleAddFavorite = (): void => {
     dispatch(addFavoriteProduct(product.id));
+  };
+
+  const onHandleAddToCart = (): void => {
+    dispatch(addCartProduct(product.id));
   };
 
   return (
@@ -34,7 +39,9 @@ const ProductItem = ({ product }: { product: Product }): JSX.Element => {
           <button onClick={onHandleAddFavorite} type="button">
             Добавить в избранное
           </button>
-          <button type="button">Добавить в корзину</button>
+          <button onClick={onHandleAddToCart} type="button">
+            Добавить в корзину
+          </button>
         </>
       )}
       {user?.isAdmin && (
