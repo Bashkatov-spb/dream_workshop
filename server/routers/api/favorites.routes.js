@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       res.json({ message: 'success', favoritesProducts });
       return;
     }
-    res.json({ message: 'У Вас нет ничего в избранном' });
+    res.json({ message: 'У Вас нет ничего в избранном', favoritesProducts: [] });
   } catch ({ message }) {
     res.json({ message });
   }

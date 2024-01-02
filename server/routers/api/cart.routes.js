@@ -3,12 +3,14 @@ const { Cart, Order, Product } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const order = await Order.findOne({ where: { user_id: res.locals.user.id, status: 'open' } });
-    if (order) {
-      const cart = await Cart.findAll({ where: { order_id: order.id }, include: Product });
-      const products = cart.map((el) => el.Product);
-      res.json({ message: 'success', products });
-      return;
+    if (res.locals.user) {
+      const order = await Order.findOne({ where: { user_id: res.locals.user.id, status: 'open' } });
+      if (order) {
+        const cart = await Cart.findAll({ where: { order_id: order.id }, include: Product });
+        const products = cart.map((el) => el.Product);
+        res.json({ message: 'success', products });
+        return;
+      }
     }
     res.json({ message: 'В корзине пусто', products: [] });
   } catch ({ message }) {

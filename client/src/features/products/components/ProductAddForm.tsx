@@ -17,26 +17,25 @@ const ProductAddForm = ({ uniqueCategories }: { uniqueCategories: Category[] }):
     dispatch(addProduct({ title, image, cost: +cost, description, category_id: +categoryId }));
   };
   return (
-    <div>
-      ProductAddForm
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="formAdd__container">
+      <form className="formAdd__form" onSubmit={handleSubmit}>
+        <div className="formAdd__input">
           <label>Название</label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
         </div>
-        <div>
+        <div className="formAdd__input">
           <label>Картинка</label>
           <input type="text" value={image} onChange={(e) => setImage(e.target.value)} />
         </div>
-        <div>
+        <div className="formAdd__input">
           <label>Стоимость</label>
           <input type="number" value={cost} onChange={(e) => setCost(e.target.value)} />
         </div>
-        <div>
+        <div className="formAdd__input">
           <label>Описание</label>
           <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
-        <div>
+        <div className="formAdd__select">
           <label>Категория</label>
           <select onChange={(e) => setCategoryId(+e.target.value)}>
             {uniqueCategories.map((cat) => (
@@ -46,7 +45,9 @@ const ProductAddForm = ({ uniqueCategories }: { uniqueCategories: Category[] }):
             ))}
           </select>
         </div>
-        <button type="submit">Submit</button>
+        <button className="formAdd__button" type="submit">
+          Добавить
+        </button>
       </form>
     </div>
   );

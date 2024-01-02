@@ -24,28 +24,28 @@ const ProductItem = ({ product }: { product: Product }): JSX.Element => {
   };
 
   return (
-    <div style={{ border: '1px solid white' }}>
-      <h4>{product.title}</h4>
+    <div className="product__container">
+      <h4 className="product__title">{product.title}</h4>
       <Link to={`/products/${product.id}`}>
         <img
-          style={{ width: '300px' }}
+          className="product__img"
           src="https://kartinki.pics/uploads/posts/2021-04/1617697486_19-p-boginya-lesa-art-kartinki-20.jpg"
           alt=""
         />
       </Link>
-      <p>{product.cost}</p>
-      {user && (
+      <p className="product__cost">{product.cost}р</p>
+      {user && !user.isAdmin && (
         <>
-          <button onClick={onHandleAddFavorite} type="button">
+          <button className="product__favorite" onClick={onHandleAddFavorite} type="button">
             Добавить в избранное
           </button>
-          <button onClick={onHandleAddToCart} type="button">
+          <button className="product__cart" onClick={onHandleAddToCart} type="button">
             Добавить в корзину
           </button>
         </>
       )}
       {user?.isAdmin && (
-        <button onClick={onHandleRemove} type="button">
+        <button className="product__delete" onClick={onHandleRemove} type="button">
           Удалить
         </button>
       )}

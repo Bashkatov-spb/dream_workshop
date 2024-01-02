@@ -6,6 +6,7 @@ import { deleteProduct, updateProduct } from '../productsSlice';
 import type { Category } from '../types/type';
 import { addCartProduct } from '../../cart/cartSlice';
 import { addFavoriteProduct } from '../../favorites/favoritesSlice';
+import Footer from '../../footer/components/Footer';
 
 const ProductItemPage = (): JSX.Element => {
   const { productId } = useParams();
@@ -113,6 +114,7 @@ const ProductItemPage = (): JSX.Element => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      <Footer />
     </div>
   );
 };

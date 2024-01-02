@@ -1,0 +1,69 @@
+.main {
+  p {
+    color: #333;
+    font-size: 16px;
+  }
+
+  &__portrait {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  &__description {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  &__container {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  &__title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  &__hero {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  &__gallery {
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+  }
+}
+.gallery {
+  &__title {
+    text-align: center;
+  }
+  &__item {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow:
+      4px 4px 6px #bebebe,
+      -4px -4px 6px #ffffff;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  &__caption {
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+  }
+}
