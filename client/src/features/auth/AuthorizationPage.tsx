@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../redux/store';
 import { authorization } from './authSlice';
+import './styles/auth.scss';
 
 const AuthorizationPage = (): JSX.Element => {
   const [email, setEmail] = useState('');
@@ -14,31 +15,35 @@ const AuthorizationPage = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <h1>Log</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Пароль:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Авторизироваться</button>
-      </form>
+    <div className="auth">
+      <h1 className="auth__title">Авторизация</h1>
+      <div className="auth__container">
+        <form className="auth__form" onSubmit={handleSubmit}>
+          <div className="auth__input">
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <label htmlFor="email">Почта</label>
+          </div>
+          <div className="auth__input">
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label htmlFor="password">Пароль</label>
+          </div>
+          <button className="auth__submit" type="submit">
+            Авторизироваться
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

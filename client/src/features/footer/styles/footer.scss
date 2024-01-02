@@ -1,0 +1,50 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow:
+    8px 8px 15px #bebebe,
+    -8px -8px 15px #ffffff;
+
+  .footer__contact {
+    p {
+      margin: 0 10px;
+      color: #333;
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer__social-links {
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      margin: 10px 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      box-shadow:
+        4px 4px 6px #bebebe,
+        -4px -4px 6px #ffffff;
+      padding: 5px;
+
+      &:hover {
+        box-shadow:
+          2px 2px 3px #bebebe,
+          -2px -2px 3px #ffffff;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

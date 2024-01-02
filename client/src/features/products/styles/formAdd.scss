@@ -1,0 +1,80 @@
+.formAdd__container {
+  background-color: #e0e0e0; // Светлый фоновый цвет для неоморфизма
+  border-radius: 10px;
+  box-shadow:
+    8px 8px 15px #bebebe,
+    // Темная тень
+    -8px -8px 15px #ffffff; // Светлая тень
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+  .formAdd__form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .formAdd__input,
+    .formAdd__select {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      label {
+        font-size: 16px;
+        color: #333;
+      }
+
+      input[type='text'],
+      input[type='number'],
+      textarea,
+      select {
+        padding: 10px;
+        background-color: #e0e0e0; // Соответствие фону контейнера
+        border-radius: 10px;
+        border: none;
+        box-shadow:
+          inset 4px 4px 6px #bebebe,
+          // Внутренняя темная тень
+          inset -4px -4px 6px #ffffff; // Внутренняя светлая тень
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+          box-shadow:
+            inset 2px 2px 4px #bebebe,
+            // Уменьшенная внутренняя темная тень
+            inset -2px -2px 4px #ffffff; // Уменьшенная внутренняя светлая тень
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+    }
+
+    .formAdd__button {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #e0e0e0;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow:
+        4px 4px 6px #bebebe,
+        // Темная тень
+        -4px -4px 6px #ffffff; // Светлая тень
+      transition: box-shadow 0.2s;
+
+      &:hover {
+        box-shadow:
+          2px 2px 3px #bebebe,
+          // Уменьшенная темная тень
+          -2px -2px 3px #ffffff; // Уменьшенная светлая тень
+      }
+    }
+  }
+}

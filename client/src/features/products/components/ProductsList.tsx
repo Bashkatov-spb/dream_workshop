@@ -4,6 +4,9 @@ import ProductItem from './ProductItem';
 import type { RootState } from '../../../redux/store';
 import ProductAddForm from './ProductAddForm';
 import type { Category } from '../types/type';
+import '../styles/products.scss';
+import '../styles/formAdd.scss';
+import Footer from '../../footer/components/Footer';
 
 const ProductsList = (): JSX.Element => {
   const [category, setCategory] = useState(0);
@@ -24,22 +27,26 @@ const ProductsList = (): JSX.Element => {
     category === 0 ? products : products.filter((product) => product.category_id === category);
 
   return (
-    <div>
-      <div>
-        <h3>Категории</h3>
-        <select onChange={(e) => setCategory(+e.target.value)} id="">
-          <option value="все">Все товары</option>
-          {uniqueCategories.map((el) => (
-            <option key={el.id} value={el.id}>
-              {el.type}
-            </option>
-          ))}
-        </select>
-      </div>
+    <div className="products__container">
+      <h3 className="products__title">Категории</h3>
+      <select className="products__select" onChange={(e) => setCategory(+e.target.value)} id="">
+        <option className="products__option" value="все">
+          Все товары
+        </option>
+        {uniqueCategories.map((el) => (
+          <option className="products__option" key={el.id} value={el.id}>
+            {el.type}
+          </option>
+        ))}
+      </select>
+
       {user?.isAdmin && <ProductAddForm uniqueCategories={uniqueCategories} />}
-      {filteredProducts.map((product) => (
-        <ProductItem key={product.id} product={product} />
-      ))}
+      <div className="products__items">
+        {filteredProducts.map((product) => (
+          <ProductItem key={product.id} product={product} />
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 };

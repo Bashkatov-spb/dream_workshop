@@ -4,6 +4,8 @@ import type { CartProduct, CartProductsLoadResponse } from './types/types';
 export const loadCartProductsFetch = async (): Promise<CartProductsLoadResponse> => {
   const response = await fetch('/api/cart');
   const data = (await response.json()) as CartProductsLoadResponse;
+  console.log(data);
+
   return data;
 };
 
